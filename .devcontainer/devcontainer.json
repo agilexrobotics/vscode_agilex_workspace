@@ -7,38 +7,36 @@
             "WORKSPACE": "${containerWorkspaceFolder}"
         }
     },
+    "remoteUser": "ros",
     "runArgs": [
         "--network=host",
         "-v=/dev:/dev",
         "--privileged=true",
-        "--runtime=nvidia",
-        "--gpus=all",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
         "--device-cgroup-rule" "a *:* rmw",
     ],
     "containerEnv": {
-        "DISPLAY": "${localEnv:DISPLAY}"
+        "DISPLAY": "${localEnv:DISPLAY}",
+        "LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
     },
     // Set *default* container specific settings.json values on container create.
     "settings": {
         "terminal.integrated.profiles.linux": {
             "bash": {
                 "path": "bash"
-            },
+            }
         },
         "terminal.integrated.defaultProfile.linux": "bash"
     },
-    // 推荐安装的插件
     "extensions": [
         "ms-iot.vscode-ros",
-        "althack.ament-task-provider",
-        "DotJoshJohnson.xml",
+        "dotjoshjohnson.xml",
+        "zachflower.uncrustify",
         "ms-azuretools.vscode-docker",
         "redhat.vscode-yaml",
         "smilerobotics.urdf",
         "streetsidesoftware.code-spell-checker",
         "twxs.cmake",
-        "yzhang.markdown-all-in-one",
-        "zachflower.uncrustify"
+        "yzhang.markdown-all-in-one"
     ]
 }
