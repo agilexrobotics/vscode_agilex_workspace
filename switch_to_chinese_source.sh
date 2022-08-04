@@ -19,8 +19,16 @@ do
         a=$(awk "/ghproxy.com/{print}" $file)
         if [ -n "$a" ]
         then
-                exit
+                echo "$file already update."
         else
                 sed -i "s#https://github.com#https://ghproxy.com/https://github.com#g" $file
         fi
 done
+
+a=$(awk "/^rosdepc/{print}" setup.sh)
+if [ -n "$a" ]
+then
+        echo "rosdepc already update."
+else
+        sed -i "s/rosdep/rosdepc/g" setup.sh
+fi

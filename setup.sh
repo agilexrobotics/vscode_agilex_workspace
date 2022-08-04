@@ -7,10 +7,10 @@ mkdir -p YDLidar-SDK/build
 cd YDLidar-SDK/build &&\
 cmake ..&&\
 make &&\
-make install &&\
+sudo make install &&\
 cd .. &&\
 pip install . &&\
-cd .. && rm -r YDLidar-SDK 
+cd .. && rm -rf YDLidar-SDK 
 
 vcs import < src/ros2.repos src
 sudo apt-get update
