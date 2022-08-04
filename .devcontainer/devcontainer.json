@@ -29,13 +29,14 @@
     },
     "extensions": [
         "ms-iot.vscode-ros",
-        "dotjoshjohnson.xml",
-        "zachflower.uncrustify",
+        "althack.ament-task-provider",
+        "DotJoshJohnson.xml",
         "ms-azuretools.vscode-docker",
         "redhat.vscode-yaml",
         "smilerobotics.urdf",
         "streetsidesoftware.code-spell-checker",
         "twxs.cmake",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "zachflower.uncrustify"
     ]
 }
