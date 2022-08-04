@@ -48,6 +48,28 @@ RUN git clone https://github.com/YDLIDAR/YDLidar-SDK.git &&\
 
 RUN echo "source /opt/ros/foxy/setup.bash" >> /etc/bash.bashrc
 
+FROM dev as nvidia
+
+# libraries for opengl in the container
+RUN apt-get update \
+    && apt-get install -y -qq --no-install-recommends \
+    libglvnd0 \
+    libgl1 \
+    libglx0 \
+    libegl1 \
+    libxext6 \
+    libx11-6 \
+    && apt-get autoremove -y \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=dialog
+
+# Env vars for the nvidia-container-runtime.
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
+
+ENV QT_X11_NO_MITSHM=1
+
 
 # ** [可选] 取消注释安装其他组件 **
 #
