@@ -1,0 +1,41 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+    "dockerFile": "Dockerfile",
+    "build": {
+        "args": {
+            "WORKSPACE": "${containerWorkspaceFolder}"
+        }
+    },
+    "remoteUser": "ros",
+    "runArgs": [
+        "--network=host",
+        "-v=/dev:/dev",
+        "--privileged=true",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+        "--device-cgroup-rule" "a *:* rmw",
+    ],
+    "containerEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}",
+        "LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
+    },
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        "terminal.integrated.profiles.linux": {
+            "bash": {
+                "path": "bash"
+            }
+        },
+        "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "extensions": [
+        "ms-iot.vscode-ros",
+        "dotjoshjohnson.xml",
+        "zachflower.uncrustify",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
+        "smilerobotics.urdf",
+        "streetsidesoftware.code-spell-checker",
+        "twxs.cmake",
+        "yzhang.markdown-all-in-one"
+    ]
+}
