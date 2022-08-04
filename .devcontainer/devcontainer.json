@@ -11,8 +11,6 @@
         "--network=host",
         "-v=/dev:/dev",
         "--privileged=true",
-        "--runtime=nvidia",
-        "--gpus=all",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
         "--device-cgroup-rule" "a *:* rmw",
     ],
