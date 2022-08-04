@@ -12,7 +12,9 @@ RUN apt-get update \
     build-essential \
     cmake \
     git \
+    vim \
     libssl-dev \
+    wget \
     libusb-1.0-0-dev \
     pkg-config \
     libgtk-3-dev \

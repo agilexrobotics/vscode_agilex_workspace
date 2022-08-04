@@ -28,12 +28,10 @@
     },
     // 推荐安装的插件
     "extensions": [
+        "ms-iot.vscode-ros",
         "dotjoshjohnson.xml",
         "zachflower.uncrustify",
         "ms-azuretools.vscode-docker",
-        "ms-iot.vscode-ros",
-        "ms-python.python",
-        "ms-vscode.cpptools",
         "redhat.vscode-yaml",
         "smilerobotics.urdf",
         "streetsidesoftware.code-spell-checker",
