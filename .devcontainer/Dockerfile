@@ -1,5 +1,23 @@
 FROM ros:foxy as dev
 
+# [Option] Install zsh
+ARG INSTALL_ZSH="true"
+# [Option] Upgrade OS packages to their latest versions
+ARG UPGRADE_PACKAGES="false"
+
+# Install needed packages and setup non-root user. Use a separate RUN statement to add your
+# own dependencies. A user of "automatic" attempts to reuse an user ID if one already exists.
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+COPY library-scripts/*.sh /tmp/library-scripts/
+RUN apt-get update \
+    && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "false" \
+    # Clean up
+    && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
+
+
 ENV DEBIAN_FRONTEND=noninteractive
 
 # For Chinese mainland user.
@@ -34,6 +52,8 @@ RUN apt-get update \
     portaudio19-dev \
     espeak \
     alsa-utils \
+    bash-completion \
+    gdb \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/YDLIDAR/YDLidar-SDK.git &&\
