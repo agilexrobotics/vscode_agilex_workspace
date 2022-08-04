@@ -3,8 +3,8 @@ FROM ros:foxy as dev
 ENV DEBIAN_FRONTEND=noninteractive
 
 # For Chinese mainland user.
-RUN  sed -i "s/ports.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
-RUN  sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
+# RUN  sed -i "s/ports.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
+# RUN  sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
 
 # Builder dependencies installation
 RUN apt-get update \
