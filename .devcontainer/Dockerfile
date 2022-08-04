@@ -34,6 +34,8 @@ RUN apt-get update \
     portaudio19-dev \
     espeak \
     alsa-utils \
+    bash-completion \
+    gdb \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/YDLIDAR/YDLidar-SDK.git &&\
@@ -47,6 +49,7 @@ RUN git clone https://github.com/YDLIDAR/YDLidar-SDK.git &&\
     cd .. && rm -r YDLidar-SDK 
 
 RUN echo "source /opt/ros/foxy/setup.bash" >> /etc/bash.bashrc
+RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /etc/bash.bashrc
 
 FROM dev as nvidia
 
