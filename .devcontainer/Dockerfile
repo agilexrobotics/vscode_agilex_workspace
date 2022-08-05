@@ -57,6 +57,12 @@ RUN apt-get update \
     gdb \
     && rm -rf /var/lib/apt/lists/*
 
+# set default audio device
+RUN echo "defaults.ctl.card 2" >> /etc/asound.conf
+RUN echo "defaults.pcm.card 2" >> /etc/asound.conf
+RUN echo "defaults.timer.card 2" >> /etc/asound.conf
+
+
 # RUN git clone https://github.com/YDLIDAR/YDLidar-SDK.git &&\
 #     mkdir -p YDLidar-SDK/build && \
 #     cd YDLidar-SDK/build &&\
