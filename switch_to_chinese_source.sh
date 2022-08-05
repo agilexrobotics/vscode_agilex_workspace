@@ -6,7 +6,7 @@ sudo sed -i "s/packages.ros.org/repo.huaweicloud.com/g" /etc/apt/sources.list.d/
 sudo apt  update
 
 echo -e "\e[32mNow switch your pip package source to China mirror source\e[0m"
-pip config set global.index-url http://mirrors.aliyun.com/pypi/simple/
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
 
 echo -e "\e[32mNow update rosdep database using rosdepc....\e[0m"
 sudo pip install rosdepc
