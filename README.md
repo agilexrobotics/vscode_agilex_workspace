@@ -203,11 +203,11 @@ workspace 默认配置了多个 VS Code Task 方便开发，
 
 使用快捷键 ``Ctrl + shift + P`` 启动命令终端，输入 `run task`：
 
-![image-20220805145757055](/media/anthony/新加卷2/code/vscode_agilex_workspace/images/19.png)
+![image-20220805145757055](images/19.png)
 
 进入 Task 面板后输入 `build` 选择 `build`
 
-![image-20220805150222981](/media/anthony/新加卷2/code/vscode_agilex_workspace/images/20.png)
+![image-20220805150222981](images/20.png)
 
 即可看到程序自动构建软件包：
 
@@ -221,7 +221,7 @@ workspace 默认配置了多个 VS Code Task 方便开发，
 
 ### **C++**
 
-![image-20220805153622210](/media/anthony/新加卷2/code/vscode_agilex_workspace/images/22.png)
+![image-20220805153622210](images/22.png)
 
 选择 GDB 调试 C++ 程序。之后点击绿色箭头开始 Debug：
 
@@ -229,15 +229,15 @@ workspace 默认配置了多个 VS Code Task 方便开发，
 
 分别输入 ``包名称`` 
 
-![image-20220805153745864](/media/anthony/新加卷2/code/vscode_agilex_workspace/images/23.png)
+![image-20220805153745864](images/23.png)
 
 和 ``程序名称``
 
-![image-20220805153817630](/media/anthony/新加卷2/code/vscode_agilex_workspace/images/24.png)
+![image-20220805153817630](images/24.png)
 
 之后 Task 会先编译程序（为了生成带 Debug 信息的程序），之后会自动打开调试页面：
 
-![image-20220805154009653](/media/anthony/新加卷2/code/vscode_agilex_workspace/images/25.png)
+![image-20220805154009653](images/25.png)
 
 之后即可按照正常形式开始调试！
 
@@ -281,9 +281,7 @@ $ ros2 launch limo_bringup limo_start.launch.py
 
 之后在本地 rviz2 中按照话题添加数据：
 
-<img src="/media/anthony/新加卷2/code/vscode_agilex_workspace/images/26.png" alt="image-20220805154711328" style="zoom:50%;" />
+<img src="images/26.png" alt="image-20220805154711328" style="zoom:50%;" />
 
-即可看到远程数据：
-
-<img src="/home/anthony/.config/Typora/typora-user-images/image-20220805154655144.png" alt="image-20220805154655144" style="zoom: 50%;" />
+即可看到远程数据
 
