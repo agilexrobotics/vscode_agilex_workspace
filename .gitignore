@@ -1,8 +1,10 @@
 devel/
 install/
 logs/
+log/
 build/
 bin/
+foder
 lib/
 msg_gen/
 srv_gen/
