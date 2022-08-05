@@ -1,5 +1,6 @@
 FROM ros:foxy as dev
 
+ARG WORKSPACE
 # [Option] Install zsh
 ARG INSTALL_ZSH="true"
 # [Option] Upgrade OS packages to their latest versions
