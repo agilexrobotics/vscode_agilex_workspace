@@ -98,7 +98,6 @@ ARG L4T_RELEASE=$L4T_RELEASE_MAJOR.$L4T_RELEASE_MINOR
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils software-properties-common && \
-    apt-get upgrade -y && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
