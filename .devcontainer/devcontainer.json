@@ -2,7 +2,7 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
     "dockerFile": "Dockerfile",
-    "remoteUser": "vscode",
+    "remoteUser": "root",
     "build": {
         "args": {
             "WORKSPACE": "${containerWorkspaceFolder}"
