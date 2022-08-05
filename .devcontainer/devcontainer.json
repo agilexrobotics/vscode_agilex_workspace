@@ -11,12 +11,19 @@
     "runArgs": [
         "--network=host",
         "-v=/dev:/dev",
+        "-v=/var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket",
+        "-v=${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native",
+        "-v=/mnt:/mnt",
         "--privileged=true",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
         "--device-cgroup-rule" "a *:* rmw",
     ],
     "containerEnv": {
         "DISPLAY": "${localEnv:DISPLAY}",
+        "TERM":"xterm-256color",
+        "PULSE_SERVER":"unix:${XDG_RUNTIME_DIR}/pulse/native",
+        "NVIDIA_DRIVER_CAPABILITIES":"all",
+        "NVIDIA_VISIBLE_DEVICES":"all",
         "LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
     },
     // Set *default* container specific settings.json values on container create.
