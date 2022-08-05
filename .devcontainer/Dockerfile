@@ -56,15 +56,15 @@ RUN apt-get update \
     gdb \
     && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/YDLIDAR/YDLidar-SDK.git &&\
-    mkdir -p YDLidar-SDK/build && \
-    cd YDLidar-SDK/build &&\
-    cmake ..&&\
-    make &&\
-    make install &&\
-    cd .. &&\
-    pip install . &&\
-    cd .. && rm -r YDLidar-SDK 
+# RUN git clone https://github.com/YDLIDAR/YDLidar-SDK.git &&\
+#     mkdir -p YDLidar-SDK/build && \
+#     cd YDLidar-SDK/build &&\
+#     cmake ..&&\
+#     make &&\
+#     make install &&\
+#     cd .. &&\
+#     pip install . &&\
+#     cd .. && rm -r YDLidar-SDK 
 
 RUN echo "source /opt/ros/foxy/setup.bash" >> /etc/bash.bashrc
 
