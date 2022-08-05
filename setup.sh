@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+chmod +x build.sh
+chmod +x test.sh
+
 # Install ydlidar SDK for ydlidar package
 git clone https://github.com/YDLIDAR/YDLidar-SDK.git
 mkdir -p YDLidar-SDK/build
