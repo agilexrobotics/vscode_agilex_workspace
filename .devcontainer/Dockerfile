@@ -1,5 +1,6 @@
 FROM ros:foxy as dev
 
+ARG WORKSPACE
 # [Option] Install zsh
 ARG INSTALL_ZSH="true"
 # [Option] Upgrade OS packages to their latest versions
@@ -17,6 +18,7 @@ RUN apt-get update \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
+RUN gpasswd --add vscode root && gpasswd --add vscode tty && gpasswd --add vscode tty
 
 ENV DEBIAN_FRONTEND=noninteractive
 
