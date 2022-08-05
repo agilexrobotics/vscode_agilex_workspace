@@ -5,14 +5,18 @@
     "remoteUser": "root",
     "build": {
         "args": {
-            "WORKSPACE": "${containerWorkspaceFolder}"
+            "WORKSPACE": "${containerWorkspaceFolder}",
+            "L4T_RELEASE_MAJOR": "32.7",
+            "L4T_RELEASE_MINOR": "1",
+            "CUDA": "10.2",
+            "SOC": "t210"
         }
     },
     "runArgs": [
         "--network=host",
         "-v=/dev:/dev",
         "-v=/var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket",
-        "-v=${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native",
+        "-v=${localEnv:XDG_RUNTIME_DIR}/pulse/native:${localEnv:XDG_RUNTIME_DIR}/pulse/native",
         "-v=/mnt:/mnt",
         "--privileged=true",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
@@ -21,7 +25,7 @@
     "containerEnv": {
         "DISPLAY": "${localEnv:DISPLAY}",
         "TERM":"xterm-256color",
-        "PULSE_SERVER":"unix:${XDG_RUNTIME_DIR}/pulse/native",
+        "PULSE_SERVER":"unix:${localEnv:XDG_RUNTIME_DIR}/pulse/native",
         "NVIDIA_DRIVER_CAPABILITIES":"all",
         "NVIDIA_VISIBLE_DEVICES":"all",
         "LIBGL_ALWAYS_SOFTWARE": "1" // Needed for software rendering of opengl
