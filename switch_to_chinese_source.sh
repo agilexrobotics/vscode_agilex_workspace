@@ -2,7 +2,7 @@
 echo -e "\e[32mNow switch your package source to China mirror source\e[0m"
 sudo sed -i "s/ports.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
 sudo sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
-sudo sed -i "s/packages.ros.org/repo.huaweicloud.com/g" /etc/apt/sources.list.d/ros2.list
+sudo sed -i "s/packages.ros.org/mirrors.ustc.edu.cn/g" /etc/apt/sources.list.d/ros2.list
 sudo apt  update
 
 echo -e "\e[32mNow switch your pip package source to China mirror source\e[0m"
