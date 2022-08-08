@@ -1,10 +1,10 @@
 # ROS2 开发模板使用
 
-
-
 本文主要讲解如何在 Jetson 平台上进行 ROS2 进行开发。
 
 > 本文所述开发方式同样适用于任意开发平台，只是相对来讲要 Jetson 直接使用 ubuntu 20.04 或 ROS2 普通的方法相对困难
+
+> 如果您想直接在 Jetson 设备或者工控机上进行在线开发，请直接转到 `配置远程开发环境` 章节，按照提示进行
 
 鉴于 Jetson 官方暂无 `Ubuntu 20.04` 镜像，本文讲解如何使用 `Docker` + `VS Code` **快速部署** ROS2 开发环境
 
@@ -37,7 +37,7 @@
 >
 > 如果 IP 在电脑重启后发生改变，则需要修改下文中的 `HostName` 字段的值
 
-点击 左下角的小图标 <img src="images/2.png" alt="image-20220804164730402" style="zoom:67%;" />
+点击 左下角的小图标 `<img src="images/2.png" alt="image-20220804164730402" style="zoom:67%;" />`
 
 在弹出的对话框中选择 `Connect to Host`
 
@@ -118,7 +118,7 @@ IdentityFile ~/.ssh/limo_rsa
 
 **建立连接**
 
-点击 <img src="images/2.png" alt="image-20220804164730402" style="zoom:80%;" />，在打开的选项中 选择 ``Connect to Host ``
+点击 `<img src="images/2.png" alt="image-20220804164730402" style="zoom:80%;" />`，在打开的选项中 选择 ``Connect to Host ``
 
 在弹出的菜单中选择我们刚刚配置的选项：
 
@@ -132,11 +132,9 @@ IdentityFile ~/.ssh/limo_rsa
 
 本节使用松灵 LIMO 机器人为例，搭载 Jetson Nano 主机。
 
-在上节中打开的远程连接界面使用快捷键 `` Ctrl + ` ``（按键 “`” 在 ESC 键下方）打开命令行窗口
+在上节中打开的远程连接界面使用快捷键 ``Ctrl + ` ``（按键 “`” 在 ESC 键下方）打开命令行窗口
 
 <img src="images/12.png" alt="image-20220804182824363" style="zoom:50%;" />
-
-
 
 下载 limo-ros2-nvidia 开发模板到 Jetson （即 车载电脑）之上：
 
@@ -152,9 +150,9 @@ $ git clone -b limo-ros2-nvidia https://github.com/agilexrobotics/vscode_agilex_
 
 <img src="images/14.png" alt="image-20220804184341600" style="zoom: 67%;" />
 
-点击 `Reopen in Container` 
+点击 `Reopen in Container`
 
-**如果没有弹出**则点击左下角 <img src="images/11.png" alt="image-20220804180053978" style="zoom:80%;" />,在弹出的窗口中点击 `Remote container`
+**如果没有弹出**则点击左下角 `<img src="images/11.png" alt="image-20220804180053978" style="zoom:80%;" />`,在弹出的窗口中点击 `Remote container`
 
 <img src="images/15.png" alt="image-20220804184647581" style="zoom: 67%;" />
 
@@ -227,7 +225,7 @@ workspace 默认配置了多个 VS Code Task 方便开发，
 
 这里以 `limo_base` 为例
 
-分别输入 ``包名称`` 
+分别输入 ``包名称``
 
 ![image-20220805153745864](images/23.png)
 
@@ -243,9 +241,7 @@ workspace 默认配置了多个 VS Code Task 方便开发，
 
 ### Python
 
-
-
-##　访问图形界面
+## 访问图形界面
 
 在 ROS2 开发过程中我们难免要使用  rviz2 等图形界面，经过笔者测试远程连接使用 X11 进行窗口绘制可能出现各种由 Nvidia 显卡导致的驱动问题导致无法成功绘制窗口，且即使成功绘制也会存在帧率过低的问题。
 
@@ -263,13 +259,16 @@ $ git clone -b simulation-foxy https://github.com/agilexrobotics/vscode_agilex_w
 
 按照前述方法，用 VSCode 打开 `vscode_agilex_workspace` 文件夹后 `Reopen in Container` 启动开发容器。
 
-等待镜像下载完毕后使用快捷键 `` Ctrl + ` ``（按键 “`” 在 ESC 键下方）打开命令行窗口运行需要图形化的软件，比如 rviz2：
+等待镜像下载完毕后使用快捷键 ``Ctrl + ` ``（按键 “`” 在 ESC 键下方）打开命令行窗口运行需要图形化的软件，比如 rviz2：
 
 ```shell
 $ rviz2
 ```
 
-<img src="/home/anthony/.config/Typora/typora-user-images/image-20220805143957848.png" alt="image-20220805143957848" style="zoom:50%;" />
+
+
+<img src="images/27.png" alt="image-20220805154711328" style="zoom:50%;" />
+
 
 如果需要接收远端数据，确保本机计算机和远程电脑处于同一局域网。并在远程电脑启动 ROS2 。
 
@@ -284,4 +283,3 @@ $ ros2 launch limo_bringup limo_start.launch.py
 <img src="images/26.png" alt="image-20220805154711328" style="zoom:50%;" />
 
 即可看到远程数据
-
