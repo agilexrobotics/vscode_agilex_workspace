@@ -1,4 +1,25 @@
-# ROS2 开发模板使用
+# 仓库使用说明
+
+使用对应分支只需要：
+
+```shell
+$ git clone -b 分支名称 https://github.com/agilexrobotics/vscode_agilex_workspace.git
+```
+
+或
+
+```shell
+$ git clone https://github.com/agilexrobotics/vscode_agilex_workspace.git
+$ git checkout 分支名称
+```
+
+- `limo-ros2`  ROS2 开发镜像，用于机器人机载电脑
+- `limo-ros2-nvidia` Jetson 平台 ROS2 开发镜像，支持 CUDA 10.2 (Jetson Nano 已测试)
+- `limo-ros1-nvidia` Jetson 官方平台 ROS1 开发镜像，仅支持 Jetson 平台
+- `simulation-foxy` PC 端学习/仿真/开发镜像 只能用于 x86 架构
+- `simulation-foxy-nvidia` PC 端学习/仿真/开发镜像 只能用于 x86 架构，适用于安装了 Nvidia 闭源驱动的电脑，提供 CUDA 支持
+
+# ROS 开发模板使用
 
 本文主要讲解如何在 Jetson 平台上进行 ROS2 进行开发。
 
@@ -265,10 +286,7 @@ $ git clone -b simulation-foxy https://github.com/agilexrobotics/vscode_agilex_w
 $ rviz2
 ```
 
-
-
 <img src="images/27.png" alt="image-20220805154711328" style="zoom:50%;" />
-
 
 如果需要接收远端数据，确保本机计算机和远程电脑处于同一局域网。并在远程电脑启动 ROS2 。
 
