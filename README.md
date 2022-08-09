@@ -19,6 +19,10 @@ $ git checkout 分支名称
 - `simulation-foxy` PC 端学习/仿真/开发镜像 只能用于 x86 架构
 - `simulation-foxy-nvidia` PC 端学习/仿真/开发镜像 只能用于 x86 架构，适用于安装了 Nvidia 闭源驱动的电脑，提供 CUDA 支持
 
+# 常见问题解决
+
+参见 [常见问题解决](./常见问题解决.md)
+
 # ROS 开发模板使用
 
 本文主要讲解如何在 Jetson 平台上进行 ROS2 进行开发。
