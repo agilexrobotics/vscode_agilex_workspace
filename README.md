@@ -21,7 +21,7 @@ $ git checkout 分支名称
 
 # 常见问题解决
 
-参见 [常见问题解决](./常见问题解决.md)
+参见 [常见问题解决](https://github.com/agilexrobotics/vscode_agilex_workspace/blob/readme/%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%20.md)
 
 # ROS 开发模板使用
 
