@@ -76,7 +76,7 @@ RUN echo "defaults.pcm.card 2" >> /etc/asound.conf
 RUN echo "defaults.timer.card 2" >> /etc/asound.conf
 
 
-RUN echo "source /opt/ros/foxy/setup.bash" >> /etc/bash.bashrc
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /etc/bash.bashrc
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /etc/bash.bashrc
 
 ENV DEBIAN_FRONTEND=dialog
