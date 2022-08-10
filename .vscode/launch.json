@@ -17,13 +17,15 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/install/lib/${input:package}/${input:program}",
+      "program": "${workspaceFolder}/devel/lib/${input:package}/${input:program}",
       "args": [],
-      "preLaunchTask": "build",
+      //"preLaunchTask": "build",
       "stopAtEntry": true,
+      "targetArchitecture": "arm64",
       "cwd": "${workspaceFolder}",
       "externalConsole": false,
       "MIMode": "gdb",
+      
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

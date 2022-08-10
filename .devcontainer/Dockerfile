@@ -1,4 +1,9 @@
-FROM ros:foxy as dev
+
+# See https://github.com/dusty-nv/jetson-containers for more information
+FROM dustynv/ros:melodic-ros-base-l4t-r32.7.1 as dev
+
+ARG USE_CHINESE_MIRROR
+
 
 ARG WORKSPACE
 # [Option] Install zsh
@@ -13,6 +18,13 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 COPY library-scripts/*.sh /tmp/library-scripts/
+
+# For Chinese mainland user
+RUN if [ "${USE_CHINESE_MIRROR}" = "true" ]; \
+    then \
+    /bin/bash /tmp/library-scripts/switch_to_chinese_mirrors.sh; \
+    fi
+
 RUN apt-get update \
     && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "false" \
     # Clean up
@@ -22,13 +34,17 @@ RUN gpasswd --add vscode root && gpasswd --add vscode tty && gpasswd --add vscod
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# For Chinese mainland user.
-# RUN  sed -i "s/ports.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
-# RUN  sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
-
-# Builder dependencies installation
 RUN apt-get update \
-    && apt-get install -qq -y --no-install-recommends \
+    # Libraries for opengl in the container
+    && apt-get install -y --no-install-recommends \
+    libglvnd0 \
+    libgl1 \
+    libglx0 \
+    libegl1 \
+    libxext6 \
+    libx11-6 \
+    # Builder dependencies installation
+    && apt-get install -y \
     build-essential \
     cmake \
     git \
@@ -40,7 +56,7 @@ RUN apt-get update \
     libgtk-3-dev \
     libglfw3-dev \
     libgl1-mesa-dev \
-    libglu1-mesa-dev \    
+    libglu1-mesa-dev \
     curl \	
     libusb-1.0-0 \
     udev \
@@ -48,14 +64,20 @@ RUN apt-get update \
     ca-certificates \
     curl \
     swig \
+    python-pip \
     software-properties-common \
-    python3-pip \
     libpulse-dev \
     portaudio19-dev \
     espeak \
     alsa-utils \
     bash-completion \
     gdb \
+    python-catkin-tools \
+    # vcstool support
+    && apt-get install -y python-vcstool \
+    # Clean up
+    && apt-get autoremove -y \
+    && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
 # set default audio device
@@ -63,33 +85,10 @@ RUN echo "defaults.ctl.card 2" >> /etc/asound.conf
 RUN echo "defaults.pcm.card 2" >> /etc/asound.conf
 RUN echo "defaults.timer.card 2" >> /etc/asound.conf
 
-# RUN git clone https://github.com/YDLIDAR/YDLidar-SDK.git &&\
-#     mkdir -p YDLidar-SDK/build && \
-#     cd YDLidar-SDK/build &&\
-#     cmake ..&&\
-#     make &&\
-#     make install &&\
-#     cd .. &&\
-#     pip install . &&\
-#     cd .. && rm -r YDLidar-SDK 
 
-RUN echo "source /opt/ros/foxy/setup.bash" >> /etc/bash.bashrc
-RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /etc/bash.bashrc
-
-
-# libraries for opengl in the container
-RUN apt-get update \
-    && apt-get install -y -qq --no-install-recommends \
-    libglvnd0 \
-    libgl1 \
-    libglx0 \
-    libegl1 \
-    libxext6 \
-    libx11-6 \
-    && apt-get autoremove -y \
-    && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/*
-ENV DEBIAN_FRONTEND=dialog
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /etc/bash.bashrc
+RUN echo "if [ -f ${WORKSPACE}/devel/setup.bash ]; then source ${WORKSPACE}/devel/setup.bash; fi" >> /etc/bash.bashrc
+ENV DEBIAN_FRONTEND=
 
 # ** [可选] 取消注释安装其他组件 **
 #

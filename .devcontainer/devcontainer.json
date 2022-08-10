@@ -6,6 +6,7 @@
     "build": {
         "args": {
             "WORKSPACE": "${containerWorkspaceFolder}",
+            "USE_CHINESE_MIRROR": "true",
             "L4T_RELEASE_MAJOR": "32.7",
             "L4T_RELEASE_MINOR": "1",
             "CUDA": "10.2",
@@ -19,6 +20,7 @@
         "-v=${localEnv:XDG_RUNTIME_DIR}/pulse/native:${localEnv:XDG_RUNTIME_DIR}/pulse/native",
         "-v=/mnt:/mnt",
         "--privileged=true",
+        "--cap-add=SYS_PTRACE",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
         "--device-cgroup-rule" "a *:* rmw",
     ],

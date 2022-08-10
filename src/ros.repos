@@ -1,0 +1,7 @@
+# List of repositories to use within your workspace
+# See https://ghproxy.com/https://github.com/dirk-thomas/vcstool
+repositories:
+  limo_ros:
+    type: git
+    url: https://ghproxy.com/https://github.com/agilexrobotics/limo_ros
+    version: master

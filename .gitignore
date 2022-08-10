@@ -53,5 +53,5 @@ qtcreator-*
 CATKIN_IGNORE
 .catkin_tools
 **/.catkin_workspace
-
+src/CMakeLists.txt
 **.log
