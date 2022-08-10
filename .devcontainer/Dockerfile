@@ -1,4 +1,3 @@
-
 # See https://hub.docker.com/r/althack/ros for more information
 FROM althack/ros:melodic-gazebo as dev
 
