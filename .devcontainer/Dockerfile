@@ -44,7 +44,6 @@ RUN apt-get update \
     libxext6 \
     libx11-6 \
     # Builder dependencies installation
-    && apt-get install -y \
     build-essential \
     cmake \
     git \
