@@ -1,3 +1,4 @@
+# See https://hub.docker.com/_/ros for more information
 FROM ros:foxy as dev
 
 ARG USE_CHINESE_MIRROR
