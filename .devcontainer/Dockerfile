@@ -20,7 +20,6 @@ ARG USER_GID=$USER_UID
 COPY library-scripts/*.sh /tmp/library-scripts/
 RUN apt-get update \
     && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "false" \
-    && /bin/bash /tmp/library-scripts/libraries-install.sh \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
@@ -31,6 +30,48 @@ ENV DEBIAN_FRONTEND=noninteractive
 # For Chinese mainland user.
 # RUN  sed -i "s/ports.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
 # RUN  sed -i "s/archive.ubuntu.com/mirrors.ustc.edu.cn/g" /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -y -qq --no-install-recommends \
+    # Libraries for opengl in the container
+    libglvnd0 \
+    libgl1 \
+    libglx0 \
+    libegl1 \
+    libxext6 \
+    libx11-6 \
+    # Builder dependencies installation
+    apt-get install -qq -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    vim \
+    libssl-dev \
+    wget \
+    libusb-1.0-0-dev \
+    pkg-config \
+    libgtk-3-dev \
+    libglfw3-dev \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \    
+    curl \	
+    libusb-1.0-0 \
+    udev \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    swig \
+    python3-pip \
+    software-properties-common \
+    libpulse-dev \
+    portaudio19-dev \
+    espeak \
+    alsa-utils \
+    bash-completion \
+    gdb \
+    # Clean up
+    && apt-get autoremove -y \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
 
 
 # set default audio device
