@@ -14,7 +14,7 @@ FROM althack/ros2:foxy-cuda-gazebo-nvidia
 
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
-RUN echo "source /opt/ros/foxy/setup.bash" >> /etc/bash.bashrc
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /etc/bash.bashrc
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /etc/bash.bashrc
 
 RUN apt-get update \
