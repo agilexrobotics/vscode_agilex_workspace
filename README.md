@@ -16,8 +16,10 @@ $ git checkout 分支名称
 - `limo-ros2`  ROS2 开发镜像，用于机器人机载电脑
 - `limo-ros2-nvidia` Jetson 平台 ROS2 开发镜像，支持 CUDA 10.2 (Jetson Nano 已测试)
 - `limo-ros1-jetson` Jetson 官方平台 ROS1 开发镜像，仅支持 Jetson 平台
-- `simulation-foxy` PC 端学习/仿真/开发镜像 只能用于 x86 架构
-- `simulation-foxy-nvidia` PC 端学习/仿真/开发镜像 只能用于 x86 架构，适用于安装了 Nvidia 闭源驱动的电脑，提供 CUDA 支持
+- `simulation-ros2` PC 端 ROS2 学习/仿真/开发镜像 只能用于 x86 架构
+- `simulation-ros2-nvidia` PC 端 ROS2 学习/仿真/开发镜像 只能用于 x86 架构，适用于安装了 Nvidia 闭源驱动的电脑，提供 CUDA 支持
+- `simulation-ros1` PC 端 ROS1 学习/仿真/开发镜像 只能用于 x86 架构
+- `simulation-ros1-nvidia` PC 端 ROS1 学习/仿真/开发镜像 只能用于 x86 架构，适用于安装了 Nvidia 闭源驱动的电脑，提供 CUDA 支持
 
 # 常见问题解决
 
