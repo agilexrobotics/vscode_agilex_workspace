@@ -22,7 +22,6 @@
         "--runtime=nvidia",
         "--gpus=all",
         "--privileged=true",
-        "--cap-add=SYS_PTRACE",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
         "--device-cgroup-rule" "a *:* rmw",
     ],
