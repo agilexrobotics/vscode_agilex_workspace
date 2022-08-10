@@ -61,12 +61,6 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-# set default audio device
-RUN echo "defaults.ctl.card 2" >> /etc/asound.conf
-RUN echo "defaults.pcm.card 2" >> /etc/asound.conf
-RUN echo "defaults.timer.card 2" >> /etc/asound.conf
-
-
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /etc/bash.bashrc
 RUN echo "if [ -f ${WORKSPACE}/devel/setup.bash ]; then source ${WORKSPACE}/devel/setup.bash; fi" >> /etc/bash.bashrc
 ENV DEBIAN_FRONTEND=
