@@ -6,7 +6,7 @@
     "build": {
         "args": {
             "WORKSPACE": "${containerWorkspaceFolder}",
-            "USE_CHINESE_MIRROR": "true",
+            "USE_CHINESE_MIRROR": "false",
             "L4T_RELEASE_MAJOR": "32.7",
             "L4T_RELEASE_MINOR": "1",
             "CUDA": "10.2",
