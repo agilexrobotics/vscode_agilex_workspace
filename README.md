@@ -282,6 +282,12 @@ $ git clone -b simulation-foxy https://github.com/agilexrobotics/vscode_agilex_w
 # $ git clone -b simulation-foxy-nvidia https://github.com/agilexrobotics/vscode_agilex_workspace.git
 ```
 
+然后允许 `xhost` 访问：
+
+```shell
+xhost +
+```
+
 按照前述方法，用 VSCode 打开 `vscode_agilex_workspace` 文件夹后 `Reopen in Container` 启动开发容器。
 
 等待镜像下载完毕后使用快捷键 ``Ctrl + ` ``（按键 “`” 在 ESC 键下方）打开命令行窗口运行需要图形化的软件，比如 rviz2：
