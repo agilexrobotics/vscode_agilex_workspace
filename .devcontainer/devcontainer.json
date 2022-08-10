@@ -19,8 +19,6 @@
         "-v=/var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket",
         "-v=${localEnv:XDG_RUNTIME_DIR}/pulse/native:${localEnv:XDG_RUNTIME_DIR}/pulse/native",
         "-v=/mnt:/mnt",
-        "--runtime=nvidia",
-        "--gpus=all",
         "--privileged=true",
         "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
         "--device-cgroup-rule" "a *:* rmw",
