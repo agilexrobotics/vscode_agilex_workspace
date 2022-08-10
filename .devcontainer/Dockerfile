@@ -38,7 +38,6 @@ RUN apt-get update && apt-get install -y -qq --no-install-recommends \
     libxext6 \
     libx11-6 \
     # Builder dependencies installation
-    apt-get install -qq -y --no-install-recommends \
     build-essential \
     cmake \
     git \
@@ -82,7 +81,7 @@ RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/in
 
 ENV DEBIAN_FRONTEND=dialog
 
-FROM dev as nvidia
+FROM dev as nvidiafoxy
 # Env vars for the nvidia-container-runtime.
 # Solve the rivz2 xcb error.
 # See https://github.com/timongentzsch/Jetson_Ubuntu20_Images/blob/master/scripts/jetson_docker_scripts
